@@ -31,6 +31,12 @@ if (program.inputFormat == "xlsx") {
       writeWorkbook(workbook);
     });
   });
+} else if (program.inputFormat == "xlsm") {
+  getStdin.buffer().then(str => {
+    XlsxPopulate.fromDataAsync(str).then(workbook => {
+      writeWorkbook(workbook);
+    });
+  });
 } else {
   const parser = parse((err, data) => {
     XlsxPopulate.fromBlankAsync().then(workbook => {
