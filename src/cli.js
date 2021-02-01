@@ -13,6 +13,7 @@ process.on('uncaughtException', function (err) {
 });
 
 program
+  .storeOptionsAsProperties()
   .option('--password <password>', 'Password')
   .option('--input-format <format>', 'Input format')
   .parse(process.argv);
